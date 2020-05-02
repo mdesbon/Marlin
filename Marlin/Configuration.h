@@ -809,7 +809,7 @@
   #endif
 #endif
 
-#define DEFAULT_EJERK    5.0  // May be used by Linear Advance
+#define DEFAULT_EJERK    5.0  // May be used by Lienar Advance
 
 /**
  * Junction Deviation Factor
@@ -980,7 +980,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 4, -41, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1116,14 +1116,14 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 196
-#define Y_BED_SIZE 192
+#define X_BED_SIZE 195
+#define Y_BED_SIZE 195
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 5
-#define Y_MIN_POS 0
+#define X_MIN_POS -17
+#define Y_MIN_POS -2
 #define Z_MIN_POS 0
-#define X_MAX_POS (X_BED_SIZE+X_MIN_POS)
+#define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 185
 
@@ -1141,9 +1141,9 @@
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
   #define MIN_SOFTWARE_ENDSTOP_X
   #define MIN_SOFTWARE_ENDSTOP_Y
-  #define MIN_SOFTWARE_ENDSTOP_Z
+// Do not enable for z to allow adjustment
+//  #define MIN_SOFTWARE_ENDSTOP_Z
 #endif
-
 // Max software endstops constrain movement within maximum coordinate bounds
 #define MAX_SOFTWARE_ENDSTOPS
 #if ENABLED(MAX_SOFTWARE_ENDSTOPS)
